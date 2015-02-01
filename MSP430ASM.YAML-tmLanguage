@@ -1,0 +1,39 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: MSP430 ASM
+scopeName: source.MSP430ASM
+fileTypes: ["msp430"]
+uuid: e9d3f0be-dbba-4705-a3ea-b088c76824f6
+patterns:
+     - comment: Assembly wordz
+       match: "(add|and|and|bis|br|call|clr|clrc|cmp|decd|dec|incd|inc|jeq|jl\
+        |jmp|jne|jnz|jz|mov|pop|push|ret\
+        |reti|rra|rrc|sub|swpb|sxt|tst)(\\.b)?"
+       name: keyword.control.source.MSP430ASM
+     - comment: addresses
+       match: "^[0-9a-f]{3}[02468ace]:?"    
+       name: entity.name.tag.source.MSP430ASM
+     - comment: function names.
+       match: "<[^>]+>"    
+       name: entity.name.function.source.MSP430ASM
+     - comment: comments!
+       match: "--.*$"
+       name: comment.source.MSP430ASM
+     - comment: machine code
+       match: "(?<= )([0-9a-f]{4} )+"
+       name: comment.source.MSP430ASM
+     - comment: constant memory addresses
+       match: "&0x([0-9a-f]{4})"
+       name: string.interpolated.source.MSP430ASM
+     - comment: numeric constant
+       match: "(?<=jz|jnz|jne|jmp) #0x[0-9a-f]+"
+       name: string.interpolated.source.MSP430ASM
+     - comment: register pointers
+       match: "@r1?[0-9]"
+       name: string.interpolated.source.MSP430ASM
+     - comment: register offset pointers
+       match: "-?0x[0-9a-f]+\\((r[0-9]{1,2}|sp)\\)"
+       name: string.interpolated.source.MSP430ASM
+     - comment: numeric constant
+       match: "(?<!jz|jnz|jne|jmp) #-?0x[0-9a-f]+"
+       name: constant.numeric.source.MSP430ASM

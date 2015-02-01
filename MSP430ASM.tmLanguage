@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>msp430</string>
+	</array>
+	<key>name</key>
+	<string>MSP430 ASM</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>comment</key>
+			<string>Assembly wordz</string>
+			<key>match</key>
+			<string>(add|and|and|bis|br|call|clr|clrc|cmp|decd|dec|incd|inc|jeq|jl|jmp|jne|jnz|jz|mov|pop|push|ret|reti|rra|rrc|sub|swpb|sxt|tst)(\.b)?</string>
+			<key>name</key>
+			<string>keyword.control.source.MSP430ASM</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>addresses</string>
+			<key>match</key>
+			<string>^[0-9a-f]{3}[02468ace]:?</string>
+			<key>name</key>
+			<string>entity.name.tag.source.MSP430ASM</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>function names.</string>
+			<key>match</key>
+			<string>&lt;[^&gt;]+&gt;</string>
+			<key>name</key>
+			<string>entity.name.function.source.MSP430ASM</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>comments!</string>
+			<key>match</key>
+			<string>--.*$</string>
+			<key>name</key>
+			<string>comment.source.MSP430ASM</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>machine code</string>
+			<key>match</key>
+			<string>(?&lt;= )([0-9a-f]{4} )+</string>
+			<key>name</key>
+			<string>comment.source.MSP430ASM</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>constant memory addresses</string>
+			<key>match</key>
+			<string>&amp;0x([0-9a-f]{4})</string>
+			<key>name</key>
+			<string>string.interpolated.source.MSP430ASM</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>numeric constant</string>
+			<key>match</key>
+			<string>(?&lt;=jz|jnz|jne|jmp) #0x[0-9a-f]+</string>
+			<key>name</key>
+			<string>string.interpolated.source.MSP430ASM</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>register pointers</string>
+			<key>match</key>
+			<string>@r1?[0-9]</string>
+			<key>name</key>
+			<string>string.interpolated.source.MSP430ASM</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>register offset pointers</string>
+			<key>match</key>
+			<string>-?0x[0-9a-f]+\((r[0-9]{1,2}|sp)\)</string>
+			<key>name</key>
+			<string>string.interpolated.source.MSP430ASM</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>numeric constant</string>
+			<key>match</key>
+			<string>(?&lt;!jz|jnz|jne|jmp) #-?0x[0-9a-f]+</string>
+			<key>name</key>
+			<string>constant.numeric.source.MSP430ASM</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.MSP430ASM</string>
+	<key>uuid</key>
+	<string>e9d3f0be-dbba-4705-a3ea-b088c76824f6</string>
+</dict>
+</plist>
